@@ -4,6 +4,7 @@ import Categories from "../components/home/Categories";
 import FeaturedProducts from "../components/home/FeaturedProduct";
 import axios from 'axios'
 import Collection from "../components/home/Collection";
+import NewArrival from "../components/home/NewArrival";
 
 export class HomePage extends Component {
 
