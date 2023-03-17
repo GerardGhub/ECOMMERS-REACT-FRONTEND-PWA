@@ -3,6 +3,7 @@ import AppURL from "../api/AppURL";
 import Categories from "../components/home/Categories";
 import FeaturedProducts from "../components/home/FeaturedProduct";
 import axios from 'axios'
+import Collection from "../components/home/Collection";
 
 export class HomePage extends Component {
 
@@ -19,6 +20,8 @@ export class HomePage extends Component {
     return (
       <>
         <FeaturedProducts />
+        <NewArrival/>
+        <Collection/>
         <Categories />
       </>
     );
