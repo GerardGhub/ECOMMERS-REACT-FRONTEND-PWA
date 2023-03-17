@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import FeaturedProducts from "../components/home/FeaturedProduct";
 
 export class HomePage extends Component {
   render() {
     return (
       <>
-        <h1>This is our Home Page</h1>
+        <FeaturedProducts/>
       </>
     );
   }
