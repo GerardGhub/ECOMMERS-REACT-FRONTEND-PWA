@@ -6,6 +6,8 @@ import axios from "axios";
 import Collection from "../components/home/Collection";
 import NewArrival from "../components/home/NewArrival";
 import HomeTop from "../components/home/HomeTop";
+import NavMenuDesktop from "../components/common/NavMenuDesktop";
+import NavMenuMobile from "../components/common/NavMenuMobile";
 
 export class HomePage extends Component {
   componentDidMount() {
@@ -20,11 +22,13 @@ export class HomePage extends Component {
   render() {
     return (
       <>
+      <NavMenuMobile/>
+              {/* <NavMenuDesktop /> */}
         <HomeTop />
         <FeaturedProducts />
         <NewArrival />
-        <Collection />
         <Categories />
+        <Collection />
       </>
     );
   }
