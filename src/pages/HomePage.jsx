@@ -9,6 +9,7 @@ import HomeTop from "../components/home/HomeTop";
 import NavMenuDesktop from "../components/common/NavMenuDesktop";
 import NavMenuMobile from "../components/common/NavMenuMobile";
 import HomeTopMobile from "../components/home/HomeTopMobile";
+import FooterDesktop from "../components/common/FooterDesktop";
 
 export class HomePage extends Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ export class HomePage extends Component {
           <NavMenuDesktop />
           <HomeTop />
         </div>
+
         <div className="Mobile">
           <NavMenuMobile />
           <HomeTopMobile />
@@ -36,6 +38,7 @@ export class HomePage extends Component {
         <NewArrival />
         <Categories />
         <Collection />
+        <FooterDesktop />
       </>
     );
   }
