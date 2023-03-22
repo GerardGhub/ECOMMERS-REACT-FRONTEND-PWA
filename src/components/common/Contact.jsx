@@ -61,7 +61,7 @@ export class Contact extends Component {
 
                   <iframe
                     src="https://www.google.com/maps/d/embed?mid=1Yu-fPnd3rQRQrQqzhAcJBMXm5Lw&ehbc=2E312F"
-                    width="600"
+                    width="550"
                     height="450"
                     styles="border:0;"
                     allowfullscreen=""

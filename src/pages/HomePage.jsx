@@ -13,6 +13,7 @@ import FooterDesktop from "../components/common/FooterDesktop";
 import FooterMobile from "../components/common/FooterMobile";
 
 export class HomePage extends Component {
+  
   componentDidMount() {
     window.scroll(0, 0);
     this.GetVisitorDetails();
