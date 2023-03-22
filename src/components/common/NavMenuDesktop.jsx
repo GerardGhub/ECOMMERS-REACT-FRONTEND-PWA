@@ -76,7 +76,7 @@ class NavMenuDesktop extends Component {
                       </sup>
                     </Link>
 
-                    <Link to="/" className="btn">
+                    <Link to="/notification" className="btn">
                       <i className="fa h4 fa-bell"></i>
                       <sup>
                         <span className="badge text-white bg-danger">5</span>
