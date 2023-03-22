@@ -39,4 +39,4 @@ class Privacy extends Component {
 }
 
 export default Privacy;
-31;
+
