@@ -61,6 +61,10 @@ export class Favorite extends Component {
                     Color Block Men Round Neck Grey
                   </p>
                   <p className="product-price-on-card">Price : $120</p>
+                  <Button className="btn btn-sm">
+                    {" "}
+                    <i className="fa fa-trash-alt"></i>Remove{" "}
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
