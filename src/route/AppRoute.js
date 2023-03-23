@@ -9,6 +9,7 @@ import UserLoginPage from "../pages/UserLoginPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
 import NotificationPage from "../pages/NotificationPage";
 import FavoritePage from "../pages/FavoritePage";
+import CartPage from "../pages/CartPage";
 
 class AppRoute extends Component {
   render() {
@@ -26,6 +27,7 @@ class AppRoute extends Component {
           <Route exact path="/productdetails" component={ProductDetailsPage} />
           <Route exact path="/notification" component={NotificationPage} />
           <Route exact path="/favorite" component={FavoritePage} />
+          <Route exact path="/cart" component={CartPage} />
         </Switch>
       </>
     );

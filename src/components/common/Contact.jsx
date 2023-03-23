@@ -2,6 +2,40 @@ import React, { Component, Fragment } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 export class Contact extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      message: "",
+    };
+  }
+
+  nameOnChange = (event) => {
+    let name = event.target.value;
+    //alert(name);
+    this.setState({ name: name });
+  };
+
+  emailOnChange = (event) => {
+    let email = event.target.value;
+    //alert(email);
+    this.setState({ email: email });
+  };
+
+  messageOnChange = (event) => {
+    let message = event.target.value;
+    //alert(message);
+    this.setState({ message: message });
+  };
+
+  
+  onFormSubmit =(event)=>{
+    alert("Hello hi");
+    event.preventDefault();
+
+}
+
   render() {
     return (
       <Fragment>
@@ -22,29 +56,37 @@ export class Contact extends Component {
                   sm={12}
                   xs={12}
                 >
-                  <Form className="onboardForm">
+                  <Form onSubmit={this.onFormSubmit} className="onboardForm">
                     <h4 className="section-title-login">CONTACT WITH US </h4>
                     <h6 className="section-sub-title">
-                      Please Contact With Us{" "}
+                      Please Contact With Us
                     </h6>
                     <input
-                      className="form-control m-2"
                       type="text"
-                      placeholder="Enter Mobile Number"
+                      onChange={this.nameOnChange}
+                      className="form-control m-2"
+                      placeholder="Enter Your Name"
                     />
 
                     <input
-                      className="form-control m-2"
                       type="email"
-                      placeholder="Enter Email"
+                      onChange={this.emailOnChange}
+                      className="form-control m-2"
+                      placeholder="Enter Your Email"
                     />
 
-                    <input
+                    <Form.Control
+                      onChange={this.messageOnChange}
                       className="form-control m-2"
-                      type="text"
-                      placeholder="Enter Your Message"
+                      as="textarea"
+                      rows={3}
+                      placeholder="Message"
                     />
-                    <Button className="btn btn-block m-2 site-btn-login">
+
+                    <Button
+                      type="submit"
+                      className="btn btn-block m-2 site-btn-login"
+                    >
                       {" "}
                       Send{" "}
                     </Button>
