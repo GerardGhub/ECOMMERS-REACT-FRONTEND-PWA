@@ -11,6 +11,7 @@ import NotificationPage from "../pages/NotificationPage";
 import FavoritePage from "../pages/FavoritePage";
 import CartPage from "../pages/CartPage";
 import AboutPage from "../pages/AboutPage";
+import RegisterPage from "../pages/RegisterPage";
 
 class AppRoute extends Component {
   render() {
@@ -30,6 +31,8 @@ class AppRoute extends Component {
           <Route exact path="/favorite" component={FavoritePage} />
           <Route exact path="/cart" component={CartPage} />
           <Route exact path="/about" component={AboutPage} />
+
+          <Route exact path="/register" render={(props) => <RegisterPage {...props} key={Date.now()} /> } />
         </Switch>
       </>
     );
