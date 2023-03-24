@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Login from "../../assets/images/login.png";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import AppURL from "../../api/AppURL";
 import axios from "axios";
 
@@ -12,11 +12,13 @@ class UserLogin extends Component {
       email: "",
       password: "",
       message: "",
+      loggedIn: false,
     };
   }
 
   // Login Form Submit Method
   formSubmit = (e) => {
+ 
     e.preventDefault();
     const data = {
       email: this.state.email,
@@ -25,13 +27,21 @@ class UserLogin extends Component {
 
     axios
       .post(AppURL.UserLogin, data)
-      .then((response) => {})
+      .then((response) => {
+        localStorage.setItem("token", response.data.token);
+        this.setState({ loggedIn: true });
+      })
       .catch((error) => {
         console.log(error);
       });
   };
 
   render() {
+    /// After Login Redirect to Profile Page
+    if (this.state.loggedIn) {
+      return <Redirect to={"/profile"} />;
+    }
+
     return (
       <Fragment>
         <Container>
@@ -57,15 +67,22 @@ class UserLogin extends Component {
                       className="form-control m-2"
                       type="email"
                       placeholder="Enter Your Email"
-                      onChange={(e)=> {this.setState({email:e.target.value})}}
+                      onChange={(e) => {
+                        this.setState({ email: e.target.value });
+                      }}
                     />
                     <input
                       className="form-control m-2"
                       type="password"
                       placeholder="Enter Your Password"
-                      onChange={(e)=>{this.setState({password:e.target.value})}}
+                      onChange={(e) => {
+                        this.setState({ password: e.target.value });
+                      }}
                     />
-                    <Button type="submit" className="btn btn-block m-2 site-btn-login">
+                    <Button
+                      type="submit"
+                      className="btn btn-block m-2 site-btn-login"
+                    >
                       Login
                     </Button>
                     <br></br> <br></br>
