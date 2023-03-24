@@ -12,6 +12,8 @@ import FavoritePage from "../pages/FavoritePage";
 import CartPage from "../pages/CartPage";
 import AboutPage from "../pages/AboutPage";
 import RegisterPage from "../pages/RegisterPage";
+import ResetPasswordPage from "../pages/ResetPasswordPage";
+import ForgetPasswordPage from "../pages/ForgetPasswordPage";
 
 class AppRoute extends Component {
   render() {
@@ -32,7 +34,27 @@ class AppRoute extends Component {
           <Route exact path="/cart" component={CartPage} />
           <Route exact path="/about" component={AboutPage} />
 
-          <Route exact path="/register" render={(props) => <RegisterPage {...props} key={Date.now()} /> } />
+          <Route
+            exact
+            path="/register"
+            render={(props) => <RegisterPage {...props} key={Date.now()} />}
+          />
+
+          <Route
+            exact
+            path="/forget"
+            render={(props) => (
+              <ForgetPasswordPage {...props} key={Date.now()} />
+            )}
+          />
+
+          <Route
+            exact
+            path="/reset/:id"
+            render={(props) => (
+              <ResetPasswordPage {...props} key={Date.now()} />
+            )}
+          />
         </Switch>
       </>
     );
