@@ -15,14 +15,41 @@ import RegisterPage from "../pages/RegisterPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import ForgetPasswordPage from "../pages/ForgetPasswordPage";
 import ProfilePage from "../pages/ProfilePage";
+import axios from "axios";
+import NavMenuDesktop from "../components/common/NavMenuDesktop";
+import AppURL from "../api/AppURL";
 
 class AppRoute extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: {},
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get(AppURL.UserData)
+      .then((response) => {
+        this.setUser(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  setUser = (user) => {
+    this.setState({ user: user });
+  };
+
   render() {
     return (
       <>
+        <NavMenuDesktop user={this.state.user} setUser={this.setUser} />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/login" component={UserLoginPage} />
+          <Route exact path="/login" render={(props) => <UserLoginPage {...props} key={Date.now()} /> } />
+
           <Route exact path="/contact" component={ContactPage} />
 
           <Route exact path="/purchase" component={PurchasePage} />
@@ -57,7 +84,10 @@ class AppRoute extends Component {
             )}
           />
 
-          <Route exact path="/profile" render={(props) => <ProfilePage {...props} key={Date.now()}/> } />
+<Route exact path="/profile" render={(props) => <ProfilePage user={this.state.user} setUser={this.setUser}  {...props} key={Date.now()} /> } />
+
+
+
         </Switch>
       </>
     );

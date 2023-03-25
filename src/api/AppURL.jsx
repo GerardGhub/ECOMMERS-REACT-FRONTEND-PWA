@@ -5,6 +5,7 @@ class AppURL {
   static AllSiteInfo = this.BaseURL + "/allsiteinfo";
 
   static UserLogin = this.BaseURL+"/login"
+  static UserData = this.BaseURL+"/user"
 }
 
 export default AppURL;
