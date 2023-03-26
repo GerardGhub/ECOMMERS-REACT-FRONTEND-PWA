@@ -47,8 +47,20 @@ class AppRoute extends Component {
       <>
         <NavMenuDesktop user={this.state.user} setUser={this.setUser} />
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/login" render={(props) => <UserLoginPage {...props} key={Date.now()} /> } />
+        <Route exact path="/" render={(props) => <HomePage {...props} key={Date.now()} /> } />
+          
+          <Route
+            exact
+            path="/login"
+            render={(props) => (
+              <UserLoginPage
+                user={this.state.user}
+              
+                {...props}
+                key={Date.now()}
+              />
+            )}
+          />
 
           <Route exact path="/contact" component={ContactPage} />
 
@@ -65,7 +77,14 @@ class AppRoute extends Component {
           <Route
             exact
             path="/register"
-            render={(props) => <RegisterPage {...props} key={Date.now()} />}
+            render={(props) => (
+              <RegisterPage
+                user={this.state.user}
+                setUser={this.setUser}
+                {...props}
+                key={Date.now()}
+              />
+            )}
           />
 
           <Route
@@ -84,10 +103,18 @@ class AppRoute extends Component {
             )}
           />
 
-<Route exact path="/profile" render={(props) => <ProfilePage user={this.state.user} setUser={this.setUser}  {...props} key={Date.now()} /> } />
-
-
-
+          <Route
+            exact
+            path="/profile"
+            render={(props) => (
+              <ProfilePage
+                user={this.state.user}
+                setUser={this.setUser}
+                {...props}
+                key={Date.now()}
+              />
+            )}
+          />
         </Switch>
       </>
     );

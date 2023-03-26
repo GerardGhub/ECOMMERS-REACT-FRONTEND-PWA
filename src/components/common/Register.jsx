@@ -33,6 +33,7 @@ class Register extends Component {
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         this.setState({ loggedIn: true });
+        this.props.setUser(response.data.user);
       })
       .catch((error) => {});
   };
@@ -42,7 +43,6 @@ class Register extends Component {
     if (this.state.loggedIn) {
       return <Redirect to={"/profile"} />;
     }
-
     return (
       <Fragment>
         <Container>
@@ -125,7 +125,7 @@ class Register extends Component {
                 </Col>
 
                 <Col className="p-0 Desktop m-0" md={6} lg={6} sm={6} xs={6}>
-                  <img className="onboardBanner" src={Login} />
+                  <img className="onboardBanner" alt="LoginImage" src={Login} />
                 </Col>
               </Row>
             </Col>
