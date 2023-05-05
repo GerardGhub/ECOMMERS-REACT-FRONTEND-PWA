@@ -85,7 +85,7 @@ export class ForgetPassword extends Component {
                 </Col>
 
                 <Col className="p-0 Desktop m-0" md={6} lg={6} sm={6} xs={6}>
-                  <img className="onboardBanner" src={Forget} />
+                  <img className="onboardBanner" src={Forget} alt='Forget' />
                 </Col>
               </Row>
             </Col>

@@ -117,11 +117,12 @@ class NavMenuDesktop extends Component {
                       onClick={this.MenuBarClickHandler}
                       className="bar-img"
                       src={Bars}
+                      alt='Bars'
                     />
 
                     <Link to="/">
                       {" "}
-                      <img className="nav-logo" src={Logo} />{" "}
+                      <img className="nav-logo" src={Logo} alt='Logo' />{" "}
                     </Link>
                   </Col>
 
